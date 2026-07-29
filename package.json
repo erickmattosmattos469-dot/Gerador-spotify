@@ -1,0 +1,13 @@
+{
+  "name": "7hub-gen",
+  "version": "1.0.0",
+  "description": "Gerador de Links Spotify Premium",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 3000",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "keywords": ["spotify", "generator", "7hub"],
+  "author": "7deus",
+  "license": "MIT"
+}
