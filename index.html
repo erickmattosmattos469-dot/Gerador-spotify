@@ -7,62 +7,51 @@
     <link href="css/index.css" rel="stylesheet">
 </head>
 <body>
-    <div class="particles" id="particles"></div>
-
     <div class="container">
-        <h1>7HUB GEN</h1>
-        <p class="subtitle">Escolha o plano e gere o link Spotify Premium.</p>
+        <!-- Header -->
+        <div class="header">
+            <h1>7HUB GEN</h1>
+            <p class="subtitle">Escolha o plano e gere o link Spotify Premium.</p>
+        </div>
 
-        <!-- Cards de Planos -->
-        <div class="plans-container">
-            <!-- Plano 1 Mês -->
+        <!-- Spotify Logo Grande -->
+        <div class="spotify-logo-container">
+            <svg class="spotify-logo" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-12.039-1.541-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15.079 10.561 18.72 12.84c.361.21.599.659.301 1.1zm.12-3.36C15.312 8.269 8.407 7.968 5.25 9.009c-.588.18-1.2-.114-1.38-.697-.18-.584.114-1.194.7-1.374 3.6-1.2 11.16-.915 15.243 2.339.pendingc.48.12 1.021-.24 1.141-.361.12-.841-.12-1.02-.581z"/>
+            </svg>
+        </div>
+
+        <!-- Plans Container -->
+        <div class="plans-wrapper">
+            <!-- Plan 1 Mês -->
             <div class="plan-card">
-                <div class="plan-header">
-                    <div class="spotify-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-12.039-1.541-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15.079 10.561 18.72 12.84c.361.21.599.659.301 1.1zm.12-3.36C15.312 8.269 8.407 7.968 5.25 9.009c-.588.18-1.2-.114-1.38-.697-.18-.584.114-1.194.7-1.374 3.6-1.2 11.16-.915 15.243 2.339.pendingc.48.12 1.021-.24 1.141-.361.12-.841-.12-1.02-.581z"/>
-                        </svg>
-                    </div>
-                    <h3>Spotify Premium — 1 Mês</h3>
-                    <span class="plan-duration">1M</span>
-                </div>
-                <div class="plan-body">
-                    <p class="plan-count"><span id="count-1m">0</span>/1000 gerados</p>
-                    <button class="gen-btn" onclick="gerarLink('1m')">
-                        <svg class="lightning" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-                        </svg>
-                        Gerar link
-                    </button>
-                </div>
+                <div class="plan-title">Spotify Premium — 1 Mês</div>
+                <div class="plan-duration">1M</div>
+                <div class="plan-count"><span id="count-1m">0</span>/1000 gerados</div>
+                <button class="gen-btn" onclick="gerarLink('1m')">
+                    <svg class="lightning" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                </button>
             </div>
 
-            <!-- Plano 3 Meses -->
+            <!-- Plan 3 Meses -->
             <div class="plan-card">
-                <div class="plan-header">
-                    <div class="spotify-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-12.039-1.541-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15.079 10.561 18.72 12.84c.361.21.599.659.301 1.1zm.12-3.36C15.312 8.269 8.407 7.968 5.25 9.009c-.588.18-1.2-.114-1.38-.697-.18-.584.114-1.194.7-1.374 3.6-1.2 11.16-.915 15.243 2.339.pendingc.48.12 1.021-.24 1.141-.361.12-.841-.12-1.02-.581z"/>
-                        </svg>
-                    </div>
-                    <h3>Spotify Premium — 3 Meses</h3>
-                    <span class="plan-duration">3M</span>
-                </div>
-                <div class="plan-body">
-                    <p class="plan-count"><span id="count-3m">0</span>/1000 gerados</p>
-                    <button class="gen-btn" onclick="gerarLink('3m')">
-                        <svg class="lightning" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-                        </svg>
-                        Gerar link
-                    </button>
-                </div>
+                <div class="plan-title">Spotify Premium — 3 Meses</div>
+                <div class="plan-duration">3M</div>
+                <div class="plan-count"><span id="count-3m">0</span>/1000 gerados</div>
+                <button class="gen-btn" onclick="gerarLink('3m')">
+                    <svg class="lightning" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                </button>
             </div>
         </div>
 
         <!-- Links Gerados -->
         <div id="links-container" class="links-container"></div>
 
+        <!-- Footer -->
         <footer>
             Criado por <strong>7deus</strong> 🔥
         </footer>
@@ -135,7 +124,6 @@
         }
 
         function buscarSelecao(link) {
-            // Extrair o código do link
             const codigo = link.split('utm_medium=')[1];
             window.open(`https://www.google.com/search?q=${codigo}`, '_blank');
         }
@@ -145,25 +133,9 @@
         }
 
         function proximoLink() {
-            // Scroll para próximo link
             const container = document.getElementById('links-container');
             container.scrollLeft += 300;
         }
-
-        // Criar partículas
-        function criarParticulas() {
-            const particlesDiv = document.getElementById("particles");
-            for (let i = 0; i < 40; i++) {
-                const p = document.createElement("div");
-                p.className = "particle";
-                p.style.width = p.style.height = Math.random() * 5 + 3 + "px";
-                p.style.left = Math.random() * 100 + "vw";
-                p.style.animationDelay = Math.random() * 12 + "s";
-                p.style.animationDuration = Math.random() * 25 + 15 + "s";
-                particlesDiv.appendChild(p);
-            }
-        }
-        criarParticulas();
     </script>
 </body>
 </html>
