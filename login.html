@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7HUB GEN - Login</title>
+    <link href="css/login.css" rel="stylesheet">
+</head>
+<body>
+    <div class="background"></div>
+    
+    <div class="container">
+        <div class="login-box">
+            <!-- Status Online -->
+            <div class="status-online">
+                <span class="dot"></span>
+                ONLINE
+            </div>
+
+            <!-- Logo e Título -->
+            <div class="header">
+                <h1>7HUB GEN</h1>
+                <p class="subtitle">Sistema de geração de links Spotify Premium</p>
+            </div>
+
+            <!-- Descrição -->
+            <div class="description">
+                <p>Gerador de links Spotify Premium com 1 e 3 meses. Controle de acesso, gerenciamento de links e estatísticas em tempo real.</p>
+            </div>
+
+            <!-- Abas de Acesso -->
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('admin')">ADMIN PANEL</button>
+                <button class="tab-btn" onclick="switchTab('client')">KEY MANAGEMENT SYSTEM</button>
+            </div>
+
+            <!-- Formulário Admin -->
+            <div id="admin-tab" class="tab-content active">
+                <form onsubmit="loginAdmin(event)">
+                    <div class="input-group">
+                        <input type="password" id="admin-password" placeholder="senha de acesso" required>
+                    </div>
+                    <button type="submit" class="btn-enter">ENTRAR</button>
+                </form>
+                <p class="hint">Acesso: <strong>7deus</strong></p>
+            </div>
+
+            <!-- Formulário Cliente -->
+            <div id="client-tab" class="tab-content">
+                <form onsubmit="loginClient(event)">
+                    <div class="input-group">
+                        <input type="password" id="client-password" placeholder="chave de acesso" required>
+                    </div>
+                    <button type="submit" class="btn-enter">ENTRAR</button>
+                </form>
+                <p class="hint">Chave: <strong>clientefov</strong></p>
+            </div>
+
+            <!-- Mensagem de Erro -->
+            <div id="error-message" class="error-message"></div>
+        </div>
+    </div>
+
+    <script>
+        // Senhas corretas
+        const ADMIN_PASSWORD = '7deus';
+        const CLIENT_KEY = 'clientefov';
+
+        // Alternar abas
+        function switchTab(tab) {
+            // Remover classe active de todos os tabs
+            document.querySelectorAll('.tab-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-btn').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            // Adicionar classe active ao tab selecionado
+            document.getElementById(tab + '-tab').classList.add('active');
+            event.target.classList.add('active');
+
+            // Limpar mensagem de erro
+            document.getElementById('error-message').textContent = '';
+        }
+
+        // Login Admin
+        function loginAdmin(event) {
+            event.preventDefault();
+            const password = document.getElementById('admin-password').value;
+            
+            if (password === ADMIN_PASSWORD) {
+                // Salvar no localStorage
+                localStorage.setItem('7hubgen_access', 'admin');
+                localStorage.setItem('7hubgen_user', '7deus');
+                
+                // Redirecionar para o gerador
+                window.location.href = 'index.html';
+            } else {
+                showError('Senha incorreta!');
+                document.getElementById('admin-password').value = '';
+            }
+        }
+
+        // Login Cliente
+        function loginClient(event) {
+            event.preventDefault();
+            const key = document.getElementById('client-password').value;
+            
+            if (key === CLIENT_KEY) {
+                // Salvar no localStorage
+                localStorage.setItem('7hubgen_access', 'client');
+                localStorage.setItem('7hubgen_user', 'clientefov');
+                
+                // Redirecionar para o gerador
+                window.location.href = 'index.html';
+            } else {
+                showError('Chave incorreta!');
+                document.getElementById('client-password').value = '';
+            }
+        }
+
+        // Mostrar erro
+        function showError(message) {
+            const errorEl = document.getElementById('error-message');
+            errorEl.textContent = message;
+            errorEl.style.display = 'block';
+            
+            setTimeout(() => {
+                errorEl.style.display = 'none';
+            }, 3000);
+        }
+
+        // Verificar se já está logado
+        window.addEventListener('load', () => {
+            const access = localStorage.getItem('7hubgen_access');
+            if (access) {
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>

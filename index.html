@@ -58,6 +58,15 @@
     </div>
 
     <script>
+        // Verificar se está logado
+        window.addEventListener('load', () => {
+            const access = localStorage.getItem('7hubgen_access');
+            if (!access) {
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+    <script>
         // Armazenar links gerados por plano
         const linksData = {
             '1m': [],
